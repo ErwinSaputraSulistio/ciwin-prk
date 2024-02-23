@@ -47,11 +47,13 @@ class Generator {
       const primeArrayNumber = []
       for(let i = 2; i <= input; i++) {
         let count = 0;
-        for(let j = i; j > 0; j--) {
-          if(count > 2) { break }
-          else { if(i % j === 0) { count += 1 } }
-        }
-        if(count === 2) { primeArrayNumber.push(i) }
+        for (let j = 2; j < i; j++) {
+          if (i % j == 0) {
+            count = 1
+            break
+          }
+      }
+        if(count === 0) { primeArrayNumber.push(i) }
       }
       res.json({
         status: 200,
